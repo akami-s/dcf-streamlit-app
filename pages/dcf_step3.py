@@ -1,7 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="Step 3 - ターミナルバリュー計算", layout="centered")
-st.title("🌱 Step 3：ターミナルバリュー（永久成長）の計算")
+st.markdown("<h3 style='white-space: nowrap;'>🌱 Step 3：ターミナルバリューの計算</h3>", unsafe_allow_html=True)
+
 
 with st.expander("❓ このステップの目的"):
     st.markdown("""

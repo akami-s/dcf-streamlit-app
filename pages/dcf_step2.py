@@ -1,7 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="Step 2 - WACC計算", layout="centered")
-st.title("📉 Step 2：WACC（加重平均資本コスト）の計算")
+st.markdown("<h3 style='white-space: nowrap;'>📉 Step 2：WACC（資本コスト）の計算</h3>", unsafe_allow_html=True)
+
 
 with st.expander("❓ このステップの目的"):
     st.markdown("""

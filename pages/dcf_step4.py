@@ -1,7 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="Step 4 - 株価の算出", layout="centered")
-st.title("💹 Step 4：企業価値と理論株価の算出")
+st.markdown("<h3 style='white-space: nowrap;'>💹 Step 4：企業価値と理論株価</h3>", unsafe_allow_html=True)
+
 
 with st.expander("❓ このステップの目的"):
     st.markdown("""

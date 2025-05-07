@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="Step 1 - FCF予測", layout="centered")
-st.title("🧮 Step 1：FCFの予測（1〜5年目）")
+st.markdown("<h3 style='white-space: nowrap;'>🧮 Step 1：FCF（1〜5年）の予測</h3>", unsafe_allow_html=True)
+
 
 with st.expander("❓ このステップの目的"):
     st.markdown("""
