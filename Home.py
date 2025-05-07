@@ -1,7 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="DCF理論株価アプリ", layout="centered")
-st.title("📊 2段階DCF法による理論株価アプリ")
+st.markdown("<h3 style='white-space: nowrap;'>📊 2段階DCFによる理論株価アプリ</h3>", unsafe_allow_html=True)
+
 
 st.markdown("""
 このアプリでは、企業価値評価の基本である **DCF（ディスカウント・キャッシュ・フロー）法** を用いて、
