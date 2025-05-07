@@ -27,6 +27,7 @@ terminal_value = st.session_state.get("terminal_value", None)
 def present_value(fcf, year, rate):
     return fcf / ((1 + rate) ** year)
 
+# --- 理論株価の計算セクション ---
 st.subheader("💰 理論株価の計算")
 
 if st.button("✅ 理論株価を計算"):
@@ -49,3 +50,28 @@ if st.button("✅ 理論株価を計算"):
         st.subheader("💰 理論株価の計算結果")
         st.write(f"株主価値（Equity Value）：{equity_value:,.0f} 百万円")
         st.success(f"📈 理論株価： {stock_price:.2f} 円")
+
+        # セッションに保存して比較ステップへ引き渡し
+        st.session_state["stock_price"] = stock_price
+
+# --- 現在株価との比較セクション（理論株価計算後にのみ表示） ---
+if "stock_price" in st.session_state:
+    st.markdown("---")
+    st.subheader("📉 現在株価との比較")
+
+    current_price = st.number_input("現在の株価（円）", value=3000.0, format="%.2f")
+
+    if st.button("📊 割安・割高を判定"):
+        stock_price = st.session_state["stock_price"]
+        if stock_price and current_price > 0:
+            diff = stock_price - current_price
+            diff_pct = diff / current_price * 100
+
+            if diff > 0:
+                st.success(f"✅ 理論株価の方が **{diff:,.2f}円 高く**、約 **{diff_pct:.2f}% 割安**です。")
+            elif diff < 0:
+                st.error(f"⚠️ 理論株価の方が **{abs(diff):,.2f}円 低く**、約 **{abs(diff_pct):.2f}% 割高**です。")
+            else:
+                st.info("理論株価と現在株価は同じです。")
+
+
